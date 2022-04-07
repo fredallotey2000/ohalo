@@ -6,7 +6,7 @@ package com.ohalo.controller;
 
 import com.ohalo.data.Dictionary;
 import com.ohalo.data.Response;
-import com.ohalo.service.DictionaryService;
+import com.ohalo.service.OhaloService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -28,9 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class DictionaryController {
 
-    private final DictionaryService dictionaryService;
+    private final OhaloService dictionaryService;
 
-    public DictionaryController(DictionaryService plantService) {
+    public DictionaryController(OhaloService plantService) {
         this.dictionaryService = plantService;
     }
 

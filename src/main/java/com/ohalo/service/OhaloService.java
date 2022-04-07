@@ -27,11 +27,11 @@ import org.springframework.scheduling.annotation.Async;
 @EnableCaching
 @CacheConfig(cacheNames = "dictionary")
 @Service
-public class DictionaryService {
+public class OhaloService {
 
     private final DictionaryRepository dictionaryRepository;
 
-    public DictionaryService(DictionaryRepository dictionaryRepository) {
+    public OhaloService(DictionaryRepository dictionaryRepository) {
         this.dictionaryRepository = dictionaryRepository;
     }
 

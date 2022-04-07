@@ -6,7 +6,7 @@ package com.ohalo.controller;
 
 import com.ohalo.data.Entry;
 import com.ohalo.data.SearchRequest;
-import com.ohalo.service.DictionaryService;
+import com.ohalo.service.OhaloService;
 import java.util.List;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.CompletableFuture;
@@ -26,17 +26,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Bsystems4
  */
 @RestController
-@RequestMapping("ohalo/api/")
+@RequestMapping("ohalo/api/search")
 public class SearchController {
 
-    private final DictionaryService dictionaryService;
+    private final OhaloService dictionaryService;
 
-    public SearchController(DictionaryService plantService) {
+    public SearchController(OhaloService plantService) {
         this.dictionaryService = plantService;
     }
 
     //GET method to search a target string using a dictionary id, produces a result of a list of indices per dictionary entry
-    @RequestMapping(value = "/search",
+    @RequestMapping(
             method = RequestMethod.GET,
             produces = {MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
@@ -55,7 +55,7 @@ public class SearchController {
     }
 
     //POST method to search a target string using a dictionary id, produces a result of a list of indices per dictionary entry
-    @RequestMapping(value = "/search",
+    @RequestMapping(
             method = RequestMethod.POST,
             produces = {MediaType.APPLICATION_JSON_VALUE},
             consumes = {MediaType.APPLICATION_JSON_VALUE})

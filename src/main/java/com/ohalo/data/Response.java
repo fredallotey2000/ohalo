@@ -5,6 +5,8 @@
 package com.ohalo.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -13,6 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Bsystems4
  */
 @XmlRootElement
+@JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Response {
 
@@ -29,9 +32,10 @@ public class Response {
     private boolean success;
 
     @JsonProperty("entity")
-    private String entity;
+    private String entity = "dictionary";
 
-    private EntityModel data;
+    @JsonProperty("data")
+    private Dictionary data;
 
     public static Response deleteSuccess = new Response("successful", "DELETE", true);
     public static Response deleteFail = new Response("DELETE", false);
@@ -39,6 +43,9 @@ public class Response {
     public static Response createFail = new Response("CREATE", false);
     public static Response updateSuccess = new Response("successful", "UPDATE", true);
     public static Response updateFail = new Response("UPDATE", false);
+
+    public Response() {
+    }
 
     public Response(String message, String operation, boolean success) {
         this.message = message;
@@ -67,7 +74,7 @@ public class Response {
         return data;
     }
 
-    public void setData(EntityModel data) {
+    public void setData(Dictionary data) {
         this.data = data;
     }
 

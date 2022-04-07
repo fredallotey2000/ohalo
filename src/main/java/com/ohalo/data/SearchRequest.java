@@ -4,6 +4,7 @@
  */
 package com.ohalo.data;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -12,6 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Bsystems4
  */
 @XmlRootElement
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SearchRequest {
 
     @JsonProperty("target")

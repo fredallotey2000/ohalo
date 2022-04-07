@@ -13,7 +13,7 @@ public class SearchUtil {
     splits the target string into 4(can be increased to increase speed of search) equal parts */
     public static List<int[]> searchTarget(String targetStr, String searchStr, boolean isCaseSensitive) {
         String[] targetArray = new String[4];
-        if (targetStr.length() > 500) {
+        if (targetStr.length() > 50) {
             String[] splitTarget = splitTarget(targetStr);
             String[] split1 = splitTarget(splitTarget[0]);
             String[] split2 = splitTarget(splitTarget[1]);
@@ -125,8 +125,8 @@ public class SearchUtil {
                 searchStrLen = searchStr.length() - 1;
                 if (index3 != -1) {
                     indices = new int[2];
-                    indices[0] = index3 + offset2;
-                    indices[1] = index3 + offset2 + searchStrLen;
+                    indices[0] = index3 + offset + offset2;
+                    indices[1] = index3 + offset + offset2 + offset2 + searchStrLen;
                     indicesArray.add(indices);
                 }
             } else {
@@ -137,8 +137,8 @@ public class SearchUtil {
                 searchStrLen = searchStr.length() - 1;
                 if (index4 != -1) {
                     indices = new int[2];
-                    indices[0] = index4 + offset3;
-                    indices[1] = index4 + offset3 + searchStrLen;
+                    indices[0] = index4 + offset + offset2 + offset3;
+                    indices[1] = index4 + offset + offset2 + offset3 + searchStrLen;
                     indicesArray.add(indices);
                 }
             } else {
